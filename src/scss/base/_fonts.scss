@@ -1,0 +1,30 @@
+/**
+ * Fonts
+*/
+
+@font-face {
+    font-family: "DINP-R";
+    src: url("../fonts/DINPro-Regular.eot?") format("eot"),
+        url("../fonts/DINPro-Regular.woff") format("woff"),
+        url("../fonts/DINPro-Regular.ttf") format("truetype"),
+        url("../fonts/DINPro-Regular.svg#DINPro-Regular") format("svg");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/Gilroy-Regular.woff2") format("woff2"),
+        url("../fonts/Gilroy-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 250;
+    font-display: swap;
+    src: url("../fonts/Gilroy-UltraLight.woff2") format("woff2"),
+        url("../fonts/Gilroy-UltraLight.woff") format("woff");
+}
