@@ -1,155 +1,55 @@
-/* By Athlon Front-End Team */
-
 /* Core variables */
-@import "base/vars";
+@import 'base/vars';
 
-/* CSS Reset */
-@import "base/reset";
-
-/* CSS print */
-@import "base/print";
+/* CSS Normalize */
+@import 'base/normalize';
 
 /* Fonts */
-@import "base/fonts";
-
-/* Mixins, helpers and functions */
-@import "base/mixins";
-
-/* Vendor */
+@import 'base/fonts';
 
 /* Components */
 
 /* Browser specific styles */
-@import "dirty/hacks";
-
-@import "components/socs";
-@import "components/card";
+@import 'dirty/hacks';
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::after,
 *::before {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    font-family: "Gilroy", serif;
-    font-size: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
 }
 
-// .socs__link svg {
-//     fill: black;
-// }
-
-// .socs__link:hover svg {
-//     fill: red;
-// }
-
-body {
-    background: grey;
+ul {
+  padding: 0;
+  list-style: none;
 }
 
-h1,
-.find-gift h2 {
-    position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
+/* Контейнер */
+.container {
+  max-width: 823px;
+  padding: 20px 20px 0 23px;
+  /*   background: url(/src/images/design/background.svg) no-repeat;
+  background-position: 99% 219px;
+  background-size: contain; */
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+/* Header style */
+@import 'components/header';
 
-.header {
-    background: white;
-}
+/* Main style */
+@import 'components/main';
 
-.header__content {
-    margin: 0 auto;
-}
+/* Breakpoints */
+// @import 'breakpoints/touch';
 
-.content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.header-content__logo {
-    flex-basis: 139px;
-}
-
-.nav {
-    display: flex;
-    list-style-type: none;
-}
-
-.nav__item {
-    margin: 0 10px;
-}
-
-.nav__link {
-    color: black;
-    text-decoration: none;
-}
-
-.find-gift {
-    background: #f1f1f2 url("../images/design/couple.jpg") right top no-repeat;
-}
-
-.find-gift__title {
-    font-weight: 250;
-    font-size: 56px;
-    line-height: 64px;
-    margin: 0;
-}
-
-.find-gift__content {
-    width: 50%;
-    padding: 50px 50px 50px 0;
-    min-height: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.find-gift__text {
-    margin-bottom: 40px;
-    margin-top: 40px;
-}
-
-.card-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 30px;
-    padding: 0;
-}
-
-.registration {
-    display: flex;
-    align-items: center;
-    padding: 58px 0;
-    background-color: #f7941e;
-}
-
-.registration__content {
-    flex-basis: 50%;
-    text-align: center;
-}
-
-.registration__buttons {
-    flex-basis: 50%;
-    text-align: center;
-}
