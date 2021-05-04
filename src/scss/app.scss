@@ -22,12 +22,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  max-width: 1440px;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-}
-
 ul {
   padding: 0;
   list-style: none;
@@ -35,13 +29,23 @@ ul {
 
 /* Контейнер */
 .container {
-  max-width: 823px;
-  padding: 20px 20px 0 23px;
-  /*   background: url(/src/images/design/background.svg) no-repeat;
-  background-position: 99% 219px;
-  background-size: contain; */
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 40px 0 40px;
 }
+.home-page{
 
+text-decoration: none;
+  &::before{
+    content: "";
+    display:inline-block;
+    width:40px;
+    height: 40px;
+    // background-color: red;
+    background: url("../images/design/HOME.svg") no-repeat;
+        background-size: 40px;
+  }
+}
 /* Header style */
 @import 'components/header';
 
