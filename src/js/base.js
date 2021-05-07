@@ -34,8 +34,8 @@ const paginationButtons = new PaginationButton(15, 5);
 paginationButtons.render();
 
 paginationButtons.onChange((e) => {
-  if (condition) {
-  }
+  // if (condition) {
+  // }
   getBase(
     `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${e.target.value}`,
   );
