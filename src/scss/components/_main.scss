@@ -1,33 +1,33 @@
-.select{
+.select {
 	width: 150px;
 	height: 30px;
 	margin-top: 32px;
 	margin-left: 50px;
 }
-.galery-films{
+.galery-films {
 	display: flex;
-	
+
 	flex-wrap: wrap;
 
 	justify-content: space-around;
 }
-.card-film{
+.card-film {
 	margin: 25px 35px;
 	width: 175px;
 	// height: 230px;
 	// background-color: red;
-	figure{
+	figure {
 		margin: 0;
-		img{
+		img {
 			width: 100%;
 		}
 	}
 }
-.paginator{
+.paginator {
 	display: flex;
 	justify-content: center;
 }
-.btn-page{
+.btn-page {
 	width: 40px;
 	height: 40px;
 	border: none;
@@ -36,7 +36,7 @@
 	background-color: darkgray;
 	color: white;
 	border-radius: 50%;
-	&:hover{
+	&:hover {
 		background-color: #521234;
 	}
 }

@@ -13,11 +13,7 @@
     "email": "plamen@athlonsofia.com"
   },
   "contributors": [
-    {
-      "name": "Plamen Nikolov",
-      "email": "me@pnikoloff.com",
-      "url": "https://pnikoloff.com"
-    }
+    "Plamen Nikolov <me@pnikoloff.com> (https://pnikoloff.com)"
   ],
   "dependencies": {},
   "devDependencies": {
@@ -73,7 +69,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
+    "url": "git+ssh://git@github.com/WeAreAthlon/frontend-webpack-boilerplate.git"
   },
   "scripts": {
     "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
@@ -85,5 +81,6 @@
     "lint:js": "eslint --ext .js src/js/",
     "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
-  "target": "web"
+  "target": "web",
+  "main": "postcss.config.js"
 }

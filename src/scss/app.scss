@@ -1,16 +1,16 @@
 /* Core variables */
-@import 'base/vars';
+@import "base/vars";
 
 /* CSS Normalize */
-@import 'base/normalize';
+@import "base/normalize";
 
 /* Fonts */
-@import 'base/fonts';
+@import "base/fonts";
 
 /* Components */
 
 /* Browser specific styles */
-@import 'dirty/hacks';
+@import "dirty/hacks";
 
 html {
   box-sizing: border-box;
@@ -29,31 +29,27 @@ ul {
 
 /* Контейнер */
 .container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 40px 40px 0 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 40px 0 40px;
 }
-.home-page{
-
-text-decoration: none;
-  &::before{
+.home-page {
+  text-decoration: none;
+  &::before {
     content: "";
-    display:inline-block;
-    width:40px;
+    display: inline-block;
+    width: 40px;
     height: 40px;
     // background-color: red;
     background: url("../images/design/HOME.svg") no-repeat;
-        background-size: 40px;
+    background-size: 40px;
   }
 }
 /* Header style */
-@import 'components/header';
+@import "components/header";
 
 /* Main style */
-@import 'components/main';
+@import "components/main";
 
 /* Breakpoints */
 // @import 'breakpoints/touch';
-
-
-
