@@ -14,14 +14,40 @@
 .card-film {
 	margin: 25px 35px;
 	width: 175px;
-	// height: 230px;
-	// background-color: red;
+
 	figure {
 		margin: 0;
 		img {
 			border-radius: 10px;
 			box-shadow: 0 2px 4px black;
-			width: 100%;
+			width: 175px;
+			height: 262.5px;
 		}
 	}
+	&:hover {
+		.vote,
+		.date {
+			display: block;
+			position: absolute;
+			color: white;
+			z-index: 2;
+		}
+	}
+}
+.date {
+	margin-top: 236px;
+	color: black;
+}
+
+.info-page {
+	margin-top: 50px;
+	display: flex;
+}
+.info-film {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+}
+.poster {
+	width: 300px;
 }
