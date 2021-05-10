@@ -4,3 +4,4 @@ import '../scss/app.scss';
 import 'regenerator-runtime/runtime';
 // import './page';
 import './base';
+import './auth';

@@ -50,8 +50,6 @@ async function getBase(url) {
       <span><b>Release date:</b> ${film.results[i].release_date}</span>
       </div>
       </div>`;
-
-      console.log(film.results[i]);
     });
   }
 
