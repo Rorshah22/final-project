@@ -1,0 +1,38 @@
+.modal,
+.modal::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal {
+  display: flex;
+  &::before {
+    content: "";
+    display: block;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+.modal_block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin: auto;
+  width: 757px;
+  height: 300px;
+  background-color: #fff;
+}
+.modal-form {
+  display: flex;
+  // position: fixed;
+  flex-direction: column;
+  z-index: 99;
+  // position: absolute;
+}
+.close-btn {
+  background-color: rgb(82, 79, 79);
+  margin-left: 76%;
+}
