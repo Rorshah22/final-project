@@ -1,3 +1,4 @@
+import { users } from './base';
 window.addEventListener('click', (e) => {
   const auth = document.querySelector('.sign');
   const modal = document.createElement('div');
@@ -65,6 +66,6 @@ window.addEventListener('click', (e) => {
   //   const users = await response.json();
   //   console.log(users);
   // }
-  const user = require('../dummy_data/users.json');
-  console.log(user);
+
+  console.log(users);
 });

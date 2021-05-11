@@ -1,3 +1,6 @@
+// получаем пользователей
+export const users = require('../dummy_data/users.json');
+
 //делаем запрос на сервер и отрисовываем результат
 async function getBase(url) {
   const response = await fetch(url);
@@ -21,74 +24,14 @@ async function getBase(url) {
     creatCardFilm(i);
   }
   //отрисовка информации о фильме
-<<<<<<< HEAD
-=======
   const resp = await fetch(
     'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=9ac7200b1a1544e39020d2a5d7e48e5b',
   );
   const genres = await resp.json();
->>>>>>> d7b5946fc9f4124146c456d3cd28d2f72de69d56
   const poster = document.querySelectorAll('.poster');
   const buttons = document.querySelector('.pagination-buttons');
   for (let i = 0; i < poster.length; i++) {
     poster[i].addEventListener('click', (e) => {
-<<<<<<< HEAD
-      galery.innerHTML = 'hi!';
-      buttons.classList.add('hidden');
-      // https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=1b06c9389ebebe29b5b43bc4607a5dec
-      console.log(
-        'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=1b06c9389ebebe29b5b43bc4607a5dec',
-      );
-    });
-  }
-
-  // возврат на домашнюю страницу
-  const home = document.querySelector('.home-page');
-  home.addEventListener('click', (e) => {
-    getBase(
-      myUrl(
-        `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100`,
-      ),
-    );
-    buttons.classList.remove('hidden');
-    select.value = 'none';
-  });
-}
-//импортируем рендер кнопок пангинации
-import { pageNumbers, PaginationButton } from './page';
-const paginationButtons = new PaginationButton(15, 5);
-paginationButtons.render();
-
-paginationButtons.onChange((e) => {
-  page = e.target.value;
-  getBase(myUrl(page));
-});
-
-let page = 1;
-let url = '';
-const select = document.querySelector('.select');
-//фильтр сортировки
-select.addEventListener('click', (e) => {
-  getBase(myUrl(1));
-});
-
-function myUrl(page) {
-  if (select.value === 'none' || select.value === 'rating_dec') {
-    return (url = `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&vote_count.gte=100`);
-  }
-  if (select.value === 'rating_asc') {
-    return (url = `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=${page}&vote_count.gte=100`);
-  }
-  if (select.value === 'release_date_des') {
-    return (url = `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=release_date.desc&include_adult=false&include_video=false&page=${page}&vote_count.gte=100`);
-  }
-  if (select.value === 'release_date_asc') {
-    return (url = `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=release_date.asc&include_adult=false&include_video=false&page=${page}&vote_count.gte=100`);
-  }
-}
-
-getBase(myUrl());
-=======
       buttons.classList.add('hidden');
       document.querySelector('.select').style = 'visibility: hidden';
       // получаем жанры фильма
@@ -175,31 +118,3 @@ function myUrl(page) {
 }
 
 getBase(myUrl());
-
-///////////////
-// const genres = {
-//   genres: [
-//     { id: 28, name: 'Action' },
-//     { id: 12, name: 'Adventure' },
-//     { id: 16, name: 'Animation' },
-//     { id: 35, name: 'Comedy' },
-//     { id: 80, name: 'Crime' },
-//     { id: 99, name: 'Documentary' },
-//     { id: 18, name: 'Drama' },
-//     { id: 10751, name: 'Family' },
-//     { id: 14, name: 'Fantasy' },
-//     { id: 36, name: 'History' },
-//     { id: 27, name: 'Horror' },
-//     { id: 10402, name: 'Music' },
-//     { id: 9648, name: 'Mystery' },
-//     { id: 10749, name: 'Romance' },
-//     { id: 878, name: 'Science Fiction' },
-//     { id: 10770, name: 'TV Movie' },
-//     { id: 53, name: 'Thriller' },
-//     { id: 10752, name: 'War' },
-//     { id: 37, name: 'Western' },
-//   ],
-// };
-
-// async function getGenres() {}
->>>>>>> d7b5946fc9f4124146c456d3cd28d2f72de69d56
