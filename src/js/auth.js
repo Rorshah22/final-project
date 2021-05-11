@@ -12,7 +12,7 @@ window.addEventListener('click', (e) => {
     <button class="close-btn" type="button">close</button>
       <div>
         
-        <form class='modal-form'>
+        <form action="" method="get" class='modal-form'>
         <label for="mail">Enter you email</label>
         <input id="mail" type="email" placeholder="email" required>
         <label for="password">Enter you password</label>
@@ -32,7 +32,7 @@ window.addEventListener('click', (e) => {
   //регистрация. сохраняем пользователя
   if (e.target.classList.contains('registration')) {
     document.querySelector('.modal-form').innerHTML = `        
-    <form action="#" method="post" class='modal-form'>
+    <form action="" method="get" class='modal-form'>
     <label for="name">Enter you name</label>
     <input id="user_name" type="name" minlength="6" placeholder="Name" required>
     <label for="surname">Enter you surname</label>
@@ -60,4 +60,11 @@ window.addEventListener('click', (e) => {
       }
     };
   }
+  // async function getUser() {
+  //   const response = await fetch('../dummy_data/users.json');
+  //   const users = await response.json();
+  //   console.log(users);
+  // }
+  const user = require('../dummy_data/users.json');
+  console.log(user);
 });

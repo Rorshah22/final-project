@@ -21,6 +21,10 @@ async function getBase(url) {
     creatCardFilm(i);
   }
   //отрисовка информации о фильме
+  const resp = await fetch(
+    'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=9ac7200b1a1544e39020d2a5d7e48e5b',
+  );
+  const genres = await resp.json();
   const poster = document.querySelectorAll('.poster');
   const buttons = document.querySelector('.pagination-buttons');
   for (let i = 0; i < poster.length; i++) {
@@ -113,33 +117,28 @@ function myUrl(page) {
 getBase(myUrl());
 
 ///////////////
-const genres = {
-  genres: [
-    { id: 28, name: 'Action' },
-    { id: 12, name: 'Adventure' },
-    { id: 16, name: 'Animation' },
-    { id: 35, name: 'Comedy' },
-    { id: 80, name: 'Crime' },
-    { id: 99, name: 'Documentary' },
-    { id: 18, name: 'Drama' },
-    { id: 10751, name: 'Family' },
-    { id: 14, name: 'Fantasy' },
-    { id: 36, name: 'History' },
-    { id: 27, name: 'Horror' },
-    { id: 10402, name: 'Music' },
-    { id: 9648, name: 'Mystery' },
-    { id: 10749, name: 'Romance' },
-    { id: 878, name: 'Science Fiction' },
-    { id: 10770, name: 'TV Movie' },
-    { id: 53, name: 'Thriller' },
-    { id: 10752, name: 'War' },
-    { id: 37, name: 'Western' },
-  ],
-};
+// const genres = {
+//   genres: [
+//     { id: 28, name: 'Action' },
+//     { id: 12, name: 'Adventure' },
+//     { id: 16, name: 'Animation' },
+//     { id: 35, name: 'Comedy' },
+//     { id: 80, name: 'Crime' },
+//     { id: 99, name: 'Documentary' },
+//     { id: 18, name: 'Drama' },
+//     { id: 10751, name: 'Family' },
+//     { id: 14, name: 'Fantasy' },
+//     { id: 36, name: 'History' },
+//     { id: 27, name: 'Horror' },
+//     { id: 10402, name: 'Music' },
+//     { id: 9648, name: 'Mystery' },
+//     { id: 10749, name: 'Romance' },
+//     { id: 878, name: 'Science Fiction' },
+//     { id: 10770, name: 'TV Movie' },
+//     { id: 53, name: 'Thriller' },
+//     { id: 10752, name: 'War' },
+//     { id: 37, name: 'Western' },
+//   ],
+// };
 
-async function getGenres() {
-  const response = await fetch(
-    'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=9ac7200b1a1544e39020d2a5d7e48e5b',
-  );
-  const genres = await response.json();
-}
+// async function getGenres() {}
