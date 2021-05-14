@@ -1,5 +1,9 @@
-// получаем пользователей
-export const users = require('../dummy_data/users.json');
+// запрос пользователей
+import { users } from './user';
+// window.store = users;
+let user = JSON.parse(localStorage.getItem('user'));
+console.log(user);
+// создаем роли
 
 //делаем запрос на сервер и отрисовываем результат
 async function getBase(url) {
@@ -23,40 +27,14 @@ async function getBase(url) {
   for (let i = 0; i < film.results.length; i++) {
     creatCardFilm(i);
   }
-  //отрисовка информации о фильме
-  const resp = await fetch(
-    'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=9ac7200b1a1544e39020d2a5d7e48e5b',
-  );
-  const genres = await resp.json();
+  // на страницу фильма
   const poster = document.querySelectorAll('.poster');
-  const buttons = document.querySelector('.pagination-buttons');
-  for (let i = 0; i < poster.length; i++) {
+  for (let i = 0; i < film.results.length; i++) {
     poster[i].addEventListener('click', (e) => {
-      buttons.classList.add('hidden');
-      document.querySelector('.select').style = 'visibility: hidden';
-      // получаем жанры фильма
-      let arrGenres = [];
-      for (let j = 0; j < film.results[i].genre_ids.length; j++) {
-        const element = film.results[i].genre_ids[j];
-        genres.genres.map(function (item) {
-          if (element === item.id) {
-            return arrGenres.push(item.name);
-          }
-        });
-      }
-      const allGenres = arrGenres.join(', ');
-      galery.innerHTML = `<div class="info-page">	
-      <img class="poster" src="https://image.tmdb.org/t/p/w500${film.results[i].poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt=""> 
-      <div class="info-film">
-      <h2>${film.results[i].title}</h2>
-      <p>${film.results[i].overview}</p>
-      <span><b>Genres: </b> ${allGenres}</span>
-      <span><b>Vote average:</b> ${film.results[i].vote_average}</span>
-      <span><b>Vote count:</b> ${film.results[i].vote_count}</span>
-      <span><b>Popularity,:</b> ${film.results[i].popularity}</span>
-      <span><b>Release date:</b> ${film.results[i].release_date}</span>
-      </div>
-      </div>`;
+      window.location = 'film.html';
+      const filmInfo = film.results[i];
+      // console.log(filmInfo);
+      localStorage.setItem('film', JSON.stringify(filmInfo));
     });
   }
 
@@ -118,3 +96,6 @@ function myUrl(page) {
 }
 
 getBase(myUrl());
+// window.addEventListener('click', (e) => {
+//   console.log(user);
+// });
