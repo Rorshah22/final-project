@@ -13,18 +13,14 @@ export function getUser() {
       window.location = 'index.html';
     });
     setTimeout(() => deleteFilm(), 500);
+    addFilm();
   }
 }
 
 function deleteFilm() {
   if (user.role === 'admin') {
-    console.log('hi admin');
-    const buttonAddFilm = document.createElement('button');
-    buttonAddFilm.classList.add('btn-add');
-
-    document.querySelector('main').append(buttonAddFilm);
     const cardFilms = document.querySelectorAll('.card-film');
-    // cardFilms.append(buttonDelFilm);
+
     for (let i = 0; i < cardFilms.length; i++) {
       const buttonDelFilm = document.createElement('button');
       buttonDelFilm.classList.add('btn-del');
@@ -35,5 +31,12 @@ function deleteFilm() {
       });
     }
   }
+}
+
+function addFilm() {
+  const buttonAddFilm = document.createElement('button');
+  buttonAddFilm.classList.add('btn-add');
+  document.querySelector('.select').after(buttonAddFilm);
+  buttonAddFilm.addEventListener('click', (e) => {});
 }
 getUser();

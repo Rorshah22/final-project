@@ -45,5 +45,14 @@
   left: 200px;
   width: 40px;
   height: 40px;
-  background: red;
+
+  background: url("/src/images/design/delete.png") no-repeat;
+  background-size: 40px;
+}
+.btn-add {
+  margin-left: 40px;
+  height: 40px;
+  width: 40px;
+  background: url("/src/images/design/plus.png") no-repeat;
+  background-size: contain;
 }
