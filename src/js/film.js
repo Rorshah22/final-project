@@ -1,4 +1,13 @@
 import '../scss/app.scss';
+import { getUser } from './role';
+window.onload = function () {
+  document.body.classList.add('loaded_hiding');
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+    document.body.classList.remove('loaded_hiding');
+  }, 500);
+};
+
 const film = JSON.parse(localStorage.getItem('film'));
 
 import 'regenerator-runtime/runtime';
@@ -8,7 +17,8 @@ async function getGenres() {
     'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=9ac7200b1a1544e39020d2a5d7e48e5b',
   );
   const genres = await response.json();
-  // получаем жанры фильма
+
+  //! получаем жанры фильма
   let arrGenres = [];
   for (let j = 0; j < film.genre_ids.length; j++) {
     const element = film.genre_ids[j];
@@ -19,9 +29,10 @@ async function getGenres() {
     });
   }
   const allGenres = arrGenres.join(', ');
-
+  // заголовок страницы
   document.title = `${film.title}`;
-  // отрисовка информации о фильме
+
+  //! отрисовка информации о фильме
   const galery = document.querySelector('.galery-films');
   galery.innerHTML = `
     <div class="info-page">

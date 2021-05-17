@@ -1,9 +1,7 @@
 // запрос пользователей
 import { users } from './user';
-// window.store = users;
+
 let user = JSON.parse(localStorage.getItem('user'));
-console.log(user);
-// создаем роли
 
 //делаем запрос на сервер и отрисовываем результат
 async function getBase(url) {
@@ -17,7 +15,7 @@ async function getBase(url) {
     <div class="vote" hidden>${film.results[i].vote_average}</div>
     <div class="date" hidden>${film.results[i].release_date}</div>
 		<figure>
-		<img class="poster" src="https://image.tmdb.org/t/p/w500${film.results[i].poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt="">
+		<img class="poster" src="https://image.tmdb.org/t/p/w200${film.results[i].poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt="">
 		<figcapt
     ion>${film.results[i].title}</figcaption>
 		</figure>
@@ -34,6 +32,7 @@ async function getBase(url) {
       window.location = 'film.html';
       const filmInfo = film.results[i];
       // console.log(filmInfo);
+
       localStorage.setItem('film', JSON.stringify(filmInfo));
     });
   }
@@ -46,11 +45,11 @@ async function getBase(url) {
         `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100`,
       ),
     );
-    buttons.classList.remove('hidden');
-    select.style = '';
-    select.value = 'none';
+    getUser();
   });
 }
+// импортируем функцую для получения роли
+import { getUser } from './role';
 //импортируем рендер кнопок пангинации
 import { pageNumbers, PaginationButton } from './page';
 const paginationButtons = new PaginationButton(15, 5, 1);
@@ -59,6 +58,7 @@ paginationButtons.render();
 paginationButtons.onChange((e) => {
   page = e.target.value;
   getBase(myUrl(page));
+  getUser();
 });
 
 let page = 1;
@@ -67,25 +67,30 @@ const select = document.querySelector('.select');
 //фильтр сортировки
 select.addEventListener('click', (e) => {
   getBase(myUrl(1));
+  getUser();
 });
 
 function myUrl(page) {
   const LINK =
     'https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=';
   const SORT = {
-    popularityDasc: 'popularity.desc',
-    popularityAsc: 'popularity.asc',
+    popularityDesc: 'popularity.desc',
+    voteAverageDesc: 'vote_average.desc',
+    voteAverageAsc: 'vote_average.asc',
     releaseDateDesc: 'release_date.desc',
     releaseDateAsc: 'release_date.asc',
   };
   const PAGE = `&include_adult=false&include_video=false&page=${page}`;
   const VOTE = '&vote_count.gte=100';
 
-  if (select.value === 'none' || select.value === 'rating_dec') {
-    return (url = LINK + SORT.popularityDasc + PAGE + VOTE);
+  if (select.value === 'none') {
+    return (url = LINK + SORT.popularityDesc + PAGE + VOTE);
+  }
+  if (select.value === 'rating_dec') {
+    return (url = LINK + SORT.voteAverageDesc + PAGE + VOTE);
   }
   if (select.value === 'rating_asc') {
-    return (url = LINK + SORT.popularityAsc + PAGE + VOTE);
+    return (url = LINK + SORT.voteAverageAsc + PAGE + VOTE);
   }
   if (select.value === 'release_date_des') {
     return (url = LINK + SORT.releaseDateDesc + PAGE + VOTE);
@@ -96,6 +101,3 @@ function myUrl(page) {
 }
 
 getBase(myUrl());
-// window.addEventListener('click', (e) => {
-//   console.log(user);
-// });
