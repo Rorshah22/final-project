@@ -12,9 +12,10 @@
 	justify-content: space-around;
 }
 .card-film {
+	display: flex;
 	margin: 25px 35px;
 	width: 175px;
-
+	position: relative;
 	figure {
 		margin: 0;
 		img {
