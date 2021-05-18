@@ -34,9 +34,16 @@ function deleteFilm() {
 }
 
 function addFilm() {
-  const buttonAddFilm = document.createElement('button');
-  buttonAddFilm.classList.add('btn-add');
-  document.querySelector('.select').after(buttonAddFilm);
-  buttonAddFilm.addEventListener('click', (e) => {});
+  if (user.role === 'admin') {
+    const buttonAddFilm = document.createElement('button');
+    buttonAddFilm.classList.add('btn-add');
+    if (document.querySelector('.section-select')) {
+      document.querySelector('.section-select').append(buttonAddFilm);
+      buttonAddFilm.addEventListener('click', (e) => {
+        window.location = 'add-film.html';
+        console.log('object');
+      });
+    }
+  }
 }
 getUser();

@@ -17,7 +17,6 @@ async function getGenres() {
     'https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=9ac7200b1a1544e39020d2a5d7e48e5b',
   );
   const genres = await response.json();
-
   //! получаем жанры фильма
   let arrGenres = [];
   for (let j = 0; j < film.genre_ids.length; j++) {

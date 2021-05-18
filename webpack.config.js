@@ -33,6 +33,7 @@ module.exports = {
     app: path.resolve(environment.paths.source, 'js', 'app.js'),
     auth: path.resolve(environment.paths.source, 'js', 'auth.js'),
     film: path.resolve(environment.paths.source, 'js', 'film.js'),
+    addfilm: path.resolve(environment.paths.source, 'js', 'addfilm.js'),
   },
   output: {
     filename: 'js/[name].js',
@@ -155,10 +156,10 @@ module.exports = {
     new HTMLWebpackPlugin({
       inject: true,
       hash: false,
-      filename: 'film.html',
-      template: path.resolve(environment.paths.source, 'templates', 'film.html'),
+      filename: 'add-film.html',
+      template: path.resolve(environment.paths.source, 'templates', 'add-film.html'),
       favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
-      chunks: ['film'],
+      chunks: ['addfilm'],
     }),
   ],
   // .concat(htmlPluginEntries),

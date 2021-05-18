@@ -9,7 +9,37 @@
 </head>
 
 <body>
+  <div class="container">
+    <header class="header">
 
+      <a href="./index.html" class="home-page">
+      </a>
+      <span class="user-name"></span>
+      <a href="./auth.html" class="sign">Sign in/Sign up</a>
+
+    </header>
+    <main>
+      <form action="" class='add-film'>
+        <input type="text" placeholder="title" minlength=3 required>
+        <textarea name="" id="" rows="4" minlength=6 maxlength=150 placeholder='overview' required></textarea>
+        <input type="text" placeholder="poster_path" required>
+        <input type="number" placeholder="popularity" required>
+        <input type="date" placeholder="release_date" required>
+        <select id="genres">
+
+        </select>
+        <input type="text" placeholder="vote_average" required>
+        <input type="text" placeholder="vote_count" required>
+        <input type="checkbox" id='adult' checked>
+        <label for="adult">Adult</label>
+        <div class='btn-action'>
+          <input type="submit" value='Add'>
+          <input type="reset" value="Clear">
+        </div>
+
+      </form>
+    </main>
+  </div>
 </body>
 
 </html>
