@@ -13,7 +13,6 @@ async function getGenres() {
     optionElement.textContent = element.name;
     optionElement.value = element.id;
     document.querySelector('#genres').append(optionElement);
-    console.log(element);
   }
 }
 getGenres();

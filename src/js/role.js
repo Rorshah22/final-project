@@ -1,4 +1,5 @@
 let user = JSON.parse(localStorage.getItem('user'));
+
 export function getUser() {
   if (user === null || user === '') {
     document.querySelector('.user-name').textContent = ``;
@@ -28,6 +29,8 @@ function deleteFilm() {
       element.append(buttonDelFilm);
       buttonDelFilm.addEventListener('click', (e) => {
         e.target.closest('.card-film').remove();
+        const film = JSON.parse(localStorage.getItem('film'));
+        console.log(film.id);
       });
     }
   }
@@ -41,7 +44,6 @@ function addFilm() {
       document.querySelector('.section-select').append(buttonAddFilm);
       buttonAddFilm.addEventListener('click', (e) => {
         window.location = 'add-film.html';
-        console.log('object');
       });
     }
   }

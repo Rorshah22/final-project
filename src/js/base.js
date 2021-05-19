@@ -7,7 +7,7 @@ let user = JSON.parse(localStorage.getItem('user'));
 async function getBase(url) {
   const response = await fetch(url);
   const film = await response.json();
-
+  localStorage.setItem('films', JSON.stringify(film));
   const galery = document.querySelector('.galery-films');
   galery.innerHTML = '';
   function creatCardFilm(i) {
@@ -40,11 +40,7 @@ async function getBase(url) {
   // возврат на домашнюю страницу
   const home = document.querySelector('.home-page');
   home.addEventListener('click', (e) => {
-    getBase(
-      myUrl(
-        `https://api.themoviedb.org/3/discover/movie?api_key=1b06c9389ebebe29b5b43bc4607a5dec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100`,
-      ),
-    );
+    window.location = 'index.html';
     getUser();
   });
 }
