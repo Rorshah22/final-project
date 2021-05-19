@@ -1,0 +1,9 @@
+.card {
+    display: block;
+    &__title {
+        font-size: 20px;
+    }
+    &--highlighted {
+        background: pink;
+    }
+}

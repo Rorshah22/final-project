@@ -1,0 +1,12 @@
+.socs {
+    &__link {
+        svg {
+            fill: black;
+        }
+        &:hover {
+            svg {
+                fill: blue;
+            }
+        }
+    }
+}
