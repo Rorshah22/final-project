@@ -29,13 +29,11 @@ function deleteFilm() {
       element.append(buttonDelFilm);
       buttonDelFilm.addEventListener('click', (e) => {
         e.target.closest('.card-film').remove();
-        const film = JSON.parse(localStorage.getItem('film'));
-        console.log(film.id);
+        console.log(`Удаление фильма id:` + e.target.closest('.card-film').dataset.id);
       });
     }
   }
 }
-
 function addFilm() {
   if (user.role === 'admin') {
     const buttonAddFilm = document.createElement('button');
@@ -48,4 +46,11 @@ function addFilm() {
     }
   }
 }
+
 getUser();
+
+export function location() {
+  if (user === null || user.role !== 'admin') {
+    window.location = 'notfound.html';
+  }
+}

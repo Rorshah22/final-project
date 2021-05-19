@@ -11,13 +11,12 @@ async function getBase(url) {
   const galery = document.querySelector('.galery-films');
   galery.innerHTML = '';
   function creatCardFilm(i) {
-    galery.innerHTML += `<div class="card-film">
+    galery.innerHTML += `<div class="card-film" data-id='${film.results[i].id}'>
     <div class="vote" hidden>${film.results[i].vote_average}</div>
     <div class="date" hidden>${film.results[i].release_date}</div>
 		<figure>
-		<img class="poster" src="https://image.tmdb.org/t/p/w200${film.results[i].poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt="">
-		<figcapt
-    ion>${film.results[i].title}</figcaption>
+		<img class="poster" src="https://image.tmdb.org/t/p/w200${film.results[i].poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt="poster ${film.results[i].title}">
+		<figcaption>${film.results[i].title}</figcaption>
 		</figure>
 		</div>`;
   }

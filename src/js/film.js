@@ -1,5 +1,7 @@
 import '../scss/app.scss';
 import { getUser } from './role';
+let user = JSON.parse(localStorage.getItem('user'));
+
 window.onload = function () {
   document.body.classList.add('loaded_hiding');
   window.setTimeout(function () {
@@ -35,7 +37,7 @@ async function getGenres() {
   const galery = document.querySelector('.galery-films');
   galery.innerHTML = `
     <div class="info-page">
-    <img class="poster" src="https://image.tmdb.org/t/p/w500${film.poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt="">
+    <img class="poster" src="https://image.tmdb.org/t/p/w500${film.poster_path}" onError="this.src='../images/content/unnamed.jpg'" alt="poster ${film.title}"">
     <div class="info-film">
     <h2>${film.title}</h2>
     <p>${film.overview}</p>
@@ -49,7 +51,28 @@ async function getGenres() {
 getGenres();
 
 // возврат на домашнюю страницу
-const home = document.querySelector('.home-page');
-home.addEventListener('click', (e) => {
-  window.location = 'index.html';
-});
+function goHome() {
+  const home = document.querySelector('.home-page');
+  home.addEventListener('click', (e) => {
+    window.location = 'index.html';
+  });
+}
+goHome();
+
+function editFilm() {
+  if (user.role === 'admin') {
+    const poster = document.querySelector('.info-page');
+    const buttonDelFilm = document.createElement('button');
+    const buttonEditFilm = document.createElement('button');
+    buttonDelFilm.classList.add('btn-del');
+    buttonEditFilm.classList.add('btn-edit');
+    poster.append(buttonDelFilm, buttonEditFilm);
+    buttonDelFilm.addEventListener('click', (e) => {
+      window.location = 'index.html';
+    });
+    buttonEditFilm.addEventListener('click', (e) => {
+      const edit = e.target;
+    });
+  }
+}
+setTimeout(() => editFilm(), 200);

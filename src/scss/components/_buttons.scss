@@ -49,6 +49,11 @@
   background: url("/src/images/design/delete.png") no-repeat;
   background-size: 40px;
 }
+.info-page {
+  .btn-del {
+    left: 305px;
+  }
+}
 .btn-add {
   position: absolute;
   left: 200px;
@@ -58,4 +63,14 @@
   width: 40px;
   background: url("/src/images/design/plus.png") no-repeat;
   background-size: contain;
+}
+.btn-edit {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  width: 40px;
+  height: 40px;
+  left: 305px;
+  background: url("/src/images/design/edit.png") no-repeat;
+  background-size: 35px;
 }
