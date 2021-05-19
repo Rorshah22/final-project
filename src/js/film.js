@@ -72,7 +72,6 @@ function editFilm() {
     });
     buttonEditFilm.addEventListener('click', (e) => {
       const edit = e.target;
-      console.log(edit);
     });
   }
 }
