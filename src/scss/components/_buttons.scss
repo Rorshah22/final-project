@@ -1,0 +1,76 @@
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+
+  gap: 4px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.page-btn {
+  background: rgb(216, 216, 216);
+  color: #2c303a;
+  height: 35px;
+  border-radius: 2px;
+  padding: 0 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-btn:not([class$="-page"]) {
+  width: 35px;
+}
+.page-btn[class$="-page"] {
+  background: rgb(173, 173, 173);
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.page-btn.active {
+  background: #4f5f9e;
+  color: #fff;
+}
+.page-btn[disabled] {
+  opacity: 0.6;
+}
+.hidden {
+  display: none;
+}
+.btn-del {
+  display: flex;
+  position: absolute;
+  left: 200px;
+  width: 40px;
+  height: 40px;
+
+  background: url("/src/images/design/delete.png") no-repeat;
+  background-size: 40px;
+}
+.info-page {
+  .btn-del {
+    left: 305px;
+  }
+}
+.btn-add {
+  position: absolute;
+  left: 200px;
+  top: 25px;
+  margin-left: 40px;
+  height: 40px;
+  width: 40px;
+  background: url("/src/images/design/plus.png") no-repeat;
+  background-size: contain;
+}
+.btn-edit {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  width: 40px;
+  height: 40px;
+  left: 305px;
+  background: url("/src/images/design/edit.png") no-repeat;
+  background-size: 35px;
+}

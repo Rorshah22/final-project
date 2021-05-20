@@ -13,19 +13,18 @@
     "email": "plamen@athlonsofia.com"
   },
   "contributors": [
-    {
-      "name": "Plamen Nikolov",
-      "email": "me@pnikoloff.com",
-      "url": "https://pnikoloff.com"
-    }
+    "Plamen Nikolov <me@pnikoloff.com> (https://pnikoloff.com)"
   ],
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
     "@babel/preset-env": "^7.12.11",
     "ajv": "^7.0.3",
     "autoprefixer": "^10.2.3",
     "babel-loader": "^8.2.2",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
@@ -70,7 +69,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
+    "url": "git+ssh://git@github.com/WeAreAthlon/frontend-webpack-boilerplate.git"
   },
   "scripts": {
     "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
@@ -82,5 +81,6 @@
     "lint:js": "eslint --ext .js src/js/",
     "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
-  "target": "web"
+  "target": "web",
+  "main": "postcss.config.js"
 }

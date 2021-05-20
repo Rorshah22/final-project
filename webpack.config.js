@@ -3,27 +3,37 @@
  */
 
 const path = require('path');
-const fs = require('fs');
+// const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const environment = require('./configuration/environment');
 
-const templateFiles = fs.readdirSync(path.resolve(__dirname, environment.paths.source, 'templates'));
-const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin({
-  inject: true,
-  hash: false,
-  filename: template,
-  template: path.resolve(environment.paths.source, 'templates', template),
-  favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
-}));
+// const templateFiles = fs.readdirSync(
+//   path.resolve(__dirname, environment.paths.source, 'templates'),
+// );
+// const htmlPluginEntries = templateFiles.map(
+//   (template) =>
+//     new HTMLWebpackPlugin({
+//       inject: true,
+//       hash: false,
+//       filename: template,
+//       template: path.resolve(environment.paths.source, 'templates', template),
+//       favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+//       chank: ['app'],
+//     }),
+// );
 
 module.exports = {
   entry: {
     app: path.resolve(environment.paths.source, 'js', 'app.js'),
+    auth: path.resolve(environment.paths.source, 'js', 'auth.js'),
+    film: path.resolve(environment.paths.source, 'js', 'film.js'),
+    addfilm: path.resolve(environment.paths.source, 'js', 'addfilm.js'),
   },
   output: {
     filename: 'js/[name].js',
@@ -41,7 +51,7 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(png|gif|jpe?g|svg)$/i,
+        test: /\.(png|gif|jpe?g)$/i,
         use: [
           {
             loader: 'url-loader',
@@ -110,6 +120,48 @@ module.exports = {
         },
       ],
     }),
-  ].concat(htmlPluginEntries),
+
+    new HTMLWebpackPlugin({
+      inject: true,
+      hash: false,
+      filename: 'index.html',
+      template: path.resolve(environment.paths.source, 'templates', 'index.html'),
+      favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+      chunks: ['app'],
+    }),
+    new HTMLWebpackPlugin({
+      inject: true,
+      hash: false,
+      filename: 'auth.html',
+      template: path.resolve(environment.paths.source, 'templates', 'auth.html'),
+      favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+      chunks: ['auth'],
+    }),
+    new HTMLWebpackPlugin({
+      inject: true,
+      hash: false,
+      filename: 'notfound.html',
+      template: path.resolve(environment.paths.source, 'templates', 'notfound.html'),
+      favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+      chunks: [''],
+    }),
+    new HTMLWebpackPlugin({
+      inject: true,
+      hash: false,
+      filename: 'film.html',
+      template: path.resolve(environment.paths.source, 'templates', 'film.html'),
+      favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+      chunks: ['film'],
+    }),
+    new HTMLWebpackPlugin({
+      inject: true,
+      hash: false,
+      filename: 'add-film.html',
+      template: path.resolve(environment.paths.source, 'templates', 'add-film.html'),
+      favicon: path.resolve(environment.paths.source, 'images', 'favicon.ico'),
+      chunks: ['addfilm'],
+    }),
+  ],
+  // .concat(htmlPluginEntries),
   target: 'web',
 };

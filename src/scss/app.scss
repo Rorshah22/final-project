@@ -1,19 +1,20 @@
 /* Core variables */
-@import 'base/vars';
+@import "base/vars";
 
 /* CSS Normalize */
-@import 'base/normalize';
+@import "base/normalize";
 
 /* Fonts */
-@import 'base/fonts';
+@import "base/fonts";
 
 /* Components */
 
 /* Browser specific styles */
-@import 'dirty/hacks';
+@import "dirty/hacks";
 
 html {
   box-sizing: border-box;
+  font-family: Roboto;
 }
 
 *,
@@ -22,34 +23,49 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  max-width: 1440px;
-  margin: 0 auto;
-  font-family: 'Roboto', sans-serif;
-}
-
 ul {
   padding: 0;
   list-style: none;
 }
+//reset style buttons
+button {
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-progress-appearance: none;
+  -ms-progress-appearance: none;
+  border: none;
+  cursor: pointer;
+}
 
 /* Контейнер */
 .container {
-  max-width: 823px;
-  padding: 20px 20px 0 23px;
-  /*   background: url(/src/images/design/background.svg) no-repeat;
-  background-position: 99% 219px;
-  background-size: contain; */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 40px 0 40px;
 }
-
+.home-page {
+  text-decoration: none;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    // background-color: red;
+    background: url("../images/design/HOME.svg") no-repeat;
+    background-size: 40px;
+  }
+}
 /* Header style */
-@import 'components/header';
+@import "components/header";
 
 /* Main style */
-@import 'components/main';
+@import "components/main";
 
+/* Buttons style */
+@import "components/buttons";
 /* Breakpoints */
 // @import 'breakpoints/touch';
 
-
-
+@import "components/form";
+@import "components/preloader";

@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Example</title>
-    </head>
-    <body>
-       <header>
-       	<button class="home-page"></button>
-       	<button class="sign">Sign in/Sign up</button>
-       </header>
-       <main>
-       	<select name="" id="">
-       		<option value="">1</option>
-       		<option value="">2</option>
-       		<option value="">3</option>
-       	</select>
-       	
-       </main>
-    </body>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Example</title>
+</head>
+
+<body>
+	<!-- Прелоадер -->
+	<div class="preloader">
+		<div class="preloader__row">
+			<div class="preloader__item"></div>
+			<div class="preloader__item"></div>
+		</div>
+	</div>
+
+	<div class="container">
+		<header class="header">
+
+			<a href="./index.html" class="home-page">
+			</a>
+			<span class="user-name"></span>
+			<a href="./auth.html" class="sign">Sign in/Sign up</a>
+
+		</header>
+		<main>
+			<section class='section-select'>
+				<select class="select">
+					<option value="none" selected>none</option>
+					<option value="rating_dec">Rating Descending
+						&#8595;
+					</option>
+					<option value="rating_asc">Rating Ascending
+
+						&#8593;</option>
+					<option value="release_date_des">Release Date Descending
+						&#8595;</option>
+					<option value="release_date_asc">Release Date Ascending
+
+						&#8593;</option>
+				</select>
+			</section>
+			<section class="galery-films">
+
+			</section>
+
+		</main>
+	</div>
+</body>
+
 </html>

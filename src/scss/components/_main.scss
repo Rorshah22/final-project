@@ -1,0 +1,110 @@
+main {
+	position: relative;
+}
+.select {
+	width: 150px;
+	height: 30px;
+	margin-top: 32px;
+	margin-left: 50px;
+}
+.galery-films {
+	display: flex;
+
+	flex-wrap: wrap;
+
+	justify-content: space-around;
+}
+.card-film {
+	display: flex;
+	margin: 25px 35px;
+	width: 175px;
+	position: relative;
+	figure {
+		margin: 0;
+		img {
+			border-radius: 10px;
+			box-shadow: 0 2px 4px black;
+			width: 175px;
+			height: 262.5px;
+		}
+	}
+	&:hover {
+		.vote,
+		.date {
+			display: block;
+			position: absolute;
+			color: white;
+			z-index: 2;
+		}
+	}
+}
+.vote {
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		width: 50px;
+		top: -15px;
+		left: -14px;
+		height: 50px;
+		display: block;
+		border: 2px solid rgb(241, 238, 19);
+		border-radius: 50%;
+		background: rgb(97, 94, 94);
+	}
+	font-weight: 700;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.date {
+	margin-top: 236px;
+	color: black;
+	background: rgb(77, 38, 38);
+	margin-left: 20px;
+}
+
+.info-page {
+	margin-top: 50px;
+	display: flex;
+	position: relative;
+}
+.info-film {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+}
+.poster {
+	width: 300px;
+}
+
+// стили для add-film
+.add-film {
+	display: block;
+	flex-direction: column;
+	max-width: 500px;
+	margin: 110px auto;
+	input {
+		width: 100%;
+		height: 37px;
+		margin: 10px 0;
+	}
+	textarea {
+		width: 100%;
+	}
+	#adult {
+		margin: 0;
+		width: 5%;
+		height: 16px;
+	}
+	label {
+		display: inline-block;
+		width: 90%;
+	}
+	input[type="submit"],
+	input[type="reset"] {
+		width: 50%;
+	}
+	.btn-action {
+		display: flex;
+	}
+}
